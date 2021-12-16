@@ -1,0 +1,48 @@
+course: CA
+exercise: 1
+date: 2021-11-7
+author: Jiwei Ma, 2638638M
+author: HaoTian Shi, 2520366S
+author: Jiyuan He, 2682781H
+
+Version 1
+All requirements of this version have been met. The program can be compiled correctly and it works well.
+
+Design method:
+We use 9 DFF components and put them in our circuit in sequential order.
+Then we add 3 OR gates between these components and make them responsible for red, amber and green lights respectively. 
+In this circuit, the input is: reset (a pushbutton). The outputs are: green, amber, red, wait, walk (each is 1 bit).
+
+Test method:
+We input a string of numbers starting with 1 followed by 0, which simulates that the reset button is pushed once to start the circuit and then it is not pressed again.
+The outputs is a fixed sequence: green, green, green, amber, red, red, red, red, amber and then it repeats.
+
+Highlight:
+We tried to solve this problem in a straightforward, concise way, which could show excellent readability and robustness of the program.
+
+
+Version 2
+each part of essessed exercise version2 has been completed;
+
+both files have been compiled and executed successfully;
+
+it works correctly, each output is consistent with our expected results which we write in the part of test_data as comments;
+
+we use 5 situations to test our circuits
+     1. normal condition: initial status are "green/wait", press the walkrequest button, wait the whole cycle of walking
+     2. boundary condition1: when the output status is "red/walk" press the walk request button
+     3. boundary condition2: when the output status is "amber/wait" press the walk request button
+     4. fuction test: press the reset button to see if the walkcount has been reset to 0
+     5. regression testing: pressing the walkrequest button to see if the function is still normal
+
+each test has been passed, every aspects appear to be right;
+
+Highlight:
+1. we want to highlight that we did the regression test, Because  Some problems may occur at the last step of functional testing, this step shows that shows the robustness of our circuit.
+2. we want hightlight our design idea : at first, we found that it`s difficult to design the circuit with so many inputs and outputs. After that, we decided to divided our circuits in 3 parts (you can see it in our code), that make our design clear and simple
+	a) part1: circuit with "walkrequest" and "walk/wait"
+	b) part2: circuit with "walkrequest" and "green/amber/red"
+	c) part3: walkcounter circuit 
+
+
+
